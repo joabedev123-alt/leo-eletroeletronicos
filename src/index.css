@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .btn-primary {
+    @apply bg-brand-magenta text-white font-display font-semibold rounded-xl hover:bg-brand-magentaHover transition-all duration-300 shadow-lg hover:shadow-brand-magenta hover:-translate-y-1 flex items-center justify-center gap-2;
+  }
+  .btn-outline {
+    @apply border-2 border-white/80 text-white font-display font-semibold rounded-xl hover:bg-white hover:text-brand-blueDark transition-all duration-300 flex items-center justify-center gap-2;
+  }
+  .badge-premium {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-lg font-body text-sm font-medium flex items-center gap-2 shadow-sm;
+  }
+  .ecommerce-card {
+    @apply bg-brand-blue rounded-3xl overflow-hidden border border-white/5 shadow-2xl relative transition-all duration-500 hover:-translate-y-2 hover:shadow-brand-blue/50;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #081730;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #081730;
+}
+::-webkit-scrollbar-thumb {
+  background: #0F2C59;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;
+}
