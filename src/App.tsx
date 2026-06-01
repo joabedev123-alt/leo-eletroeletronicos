@@ -36,9 +36,8 @@ function App() {
       {/* HEADER PREMIUM ECOMMERCE */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
-          <div className="flex flex-col scale-[1.4] sm:scale-[1.8] md:scale-[2.2] origin-top-left z-50">
+          <div className="flex flex-col scale-[1.8] sm:scale-[2.4] md:scale-[3.0] origin-top-left z-50">
             <img src="/logo.png" alt="K Eletro Logo" className="h-8 sm:h-10 w-auto object-contain" />
-            <span className="text-[7px] sm:text-[8px] uppercase tracking-widest text-gray-400 font-semibold mt-0.5">Outlet Premium</span>
           </div>
           
           <nav className="hidden md:flex gap-8 font-display text-sm font-medium text-gray-300 ml-auto">
@@ -69,15 +68,15 @@ function App() {
               </motion.div>
               
               <motion.h1 variants={fadeUp} className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black text-white leading-[1.1] mb-6 tracking-tight">
-                Eletrodomésticos Premium com <span className="text-brand-magenta">Preços de Outlet</span>
+                Eletrodomésticos com <span className="text-brand-magenta">Preços de Outlet</span>
               </motion.h1>
               
               <motion.p variants={fadeUp} className="text-lg md:text-xl text-gray-300 font-body leading-relaxed mb-8 max-w-xl">
-                Geladeiras, fogões, máquinas de lavar e eletros seminovos, revisados por preços <span className="font-bold text-white">muito abaixo do varejo</span>.
+                Geladeiras, fogões, máquinas de lavar e eletros com pequenas avarias, revisados com garantia por preços <span className="font-bold text-white">abaixo do varejo</span>.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-10">
-                <span className="badge-premium"><ShieldCheck size={16} className="text-brand-magenta" /> Garantia da Loja</span>
+                <span className="badge-premium"><ShieldCheck size={16} className="text-brand-magenta" /> Garantia de Loja e Fábrica</span>
                 <span className="badge-premium"><CheckCircleFill size={16} className="text-brand-magenta" /> Produtos Revisados</span>
                 <span className="badge-premium"><BagFill size={16} className="text-brand-magenta" /> Estoque de Saldo</span>
               </motion.div>
@@ -240,7 +239,7 @@ function App() {
             {[
               { icon: <ShieldCheck size={32} />, title: "Produtos Revisados", desc: "Todos os produtos passam por análise técnica rigorosa." },
               { icon: <TagFill size={32} />, title: "Economia Real", desc: "Preços muito abaixo do varejo online." },
-              { icon: <StarFill size={32} />, title: "Garantia da Loja", desc: "Mais segurança e tranquilidade na sua compra." },
+              { icon: <StarFill size={32} />, title: "Garantia de Loja e Fábrica", desc: "Mais segurança e tranquilidade na sua compra." },
               { icon: <CheckCircleFill size={32} />, title: "Produtos Seminovos", desc: "Produtos selecionados e revisados cuidadosamente." },
               { icon: <BagFill size={32} />, title: "Outlet de Verdade", desc: "Pequenas avarias estéticas com grandes descontos." },
               { icon: <ArrowRepeat size={32} />, title: "Estoque Rotativo", desc: "Novas oportunidades e ofertas toda semana." }
@@ -267,7 +266,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-12 text-center">Locação de Refrigeradores e Freezers Horizontal</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] sm:auto-rows-[200px] md:auto-rows-[250px]">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="col-span-2 row-span-2 rounded-2xl overflow-hidden relative group shadow-lg">
               <img src="/imagens/Refrigeradores%20e%20Freezers%20Horizontal1.avif" alt="Refrigeradores e Freezers" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-brand-blueDark/40 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -308,7 +307,7 @@ function App() {
               { step: '4', title: 'Retire na loja', desc: 'Venha buscar seu eletrodoméstico.' },
             ].map((s, i) => (
               <div key={i} className="mb-10 md:mb-0 relative pl-8 md:pl-0 md:w-1/4 md:text-center md:-mt-[58px]">
-                <div className="absolute left-[ -9px] md:left-1/2 md:-translate-x-1/2 top-0 w-4 h-4 rounded-full bg-brand-magenta shadow-[0_0_10px_rgba(225,29,72,0.8)] border-[3px] border-brand-blueDark"></div>
+                <div className="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 top-0 w-4 h-4 rounded-full bg-brand-magenta shadow-[0_0_10px_rgba(225,29,72,0.8)] border-[3px] border-brand-blueDark"></div>
                 <div className="md:mt-10">
                   <div className="text-brand-magenta font-display font-black text-2xl mb-2">Passo {s.step}</div>
                   <h4 className="font-display font-bold text-white text-lg mb-2 leading-tight">{s.title}</h4>
@@ -331,7 +330,7 @@ function App() {
       {/* FAIXA DIFERENCIAL PREMIUM */}
       <section className="py-12 bg-brand-magenta text-center px-4 sm:px-6">
         <h3 className="font-display font-bold text-xl md:text-2xl text-white max-w-4xl mx-auto leading-tight shadow-sm">
-          Produtos revisados, usados e seminovos com garantia da loja.
+          Produtos revisados, usados e seminovos com garantia de loja e fábrica.
         </h3>
       </section>
 
