@@ -35,7 +35,7 @@ function App() {
       
       {/* HEADER PREMIUM ECOMMERCE */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
           <div className="flex flex-col scale-[1.4] sm:scale-[1.8] md:scale-[2.2] origin-top-left z-50">
             <img src="/logo.png" alt="K Eletro Logo" className="h-8 sm:h-10 w-auto object-contain" />
             <span className="text-[7px] sm:text-[8px] uppercase tracking-widest text-gray-400 font-semibold mt-0.5">Outlet Premium</span>
@@ -53,7 +53,7 @@ function App() {
       {/* HERO SECTION - SHOWROOM EXPERIENCE */}
       <section id="hero" className="relative min-h-screen pt-24 pb-12 flex items-center z-10 bg-brand-blueDark overflow-hidden">
         
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full relative z-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 w-full relative z-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Esquerda: Copy Comercial */}
@@ -99,7 +99,7 @@ function App() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative h-[300px] sm:h-[400px] lg:h-[700px] w-full rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 mt-8 lg:mt-0"
+              className="relative h-[250px] sm:h-[400px] lg:h-[700px] w-full rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 mt-8 lg:mt-0"
             >
               <img 
                 src="/hero_appliance_store.png" 
@@ -114,7 +114,7 @@ function App() {
 
       {/* CATEGORIAS - ECOMMERCE PREMIUM */}
       <section id="categorias" className="py-12 bg-brand-blue relative border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
             <div>
               <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">Nossas Categorias</h2>
@@ -138,7 +138,7 @@ function App() {
               <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
                 <h3 className="font-display text-3xl md:text-4xl font-bold text-white drop-shadow-md">Geladeiras</h3>
                 <div className="self-start mt-auto">
-                  <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de saber mais sobre as geladeiras disponíveis.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg font-display font-bold hover:bg-[#1DA851] transition-colors shadow-lg">
+                  <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de saber mais sobre as geladeiras disponíveis.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 sm:px-6 py-3 rounded-lg font-display font-bold hover:bg-[#1DA851] transition-colors shadow-lg">
                     <Whatsapp size={18} /> Ver Produto
                   </a>
                 </div>
@@ -230,7 +230,7 @@ function App() {
 
       {/* VANTAGENS - POR QUE COMPRAR */}
       <section id="vantagens" className="py-24 bg-brand-blueDark">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Por que comprar na K Eletro?</h2>
             <p className="text-gray-400 font-body text-lg">Garantimos a melhor experiência de compra de eletrodomésticos.</p>
@@ -264,7 +264,7 @@ function App() {
 
       {/* SHOWROOM / GALERIA */}
       <section className="py-24 bg-brand-blue border-y border-white/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-12 text-center">Locação de Refrigeradores e Freezers Horizontal</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px]">
@@ -294,7 +294,7 @@ function App() {
 
       {/* COMO FUNCIONA - TIMELINE */}
       <section id="comofunciona" className="py-24 bg-brand-blueDark">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Como Comprar</h2>
             <p className="text-gray-400 font-body text-lg">Processo rápido, seguro e sem burocracia.</p>
@@ -329,7 +329,7 @@ function App() {
       </section>
 
       {/* FAIXA DIFERENCIAL PREMIUM */}
-      <section className="py-12 bg-brand-magenta text-center px-6">
+      <section className="py-12 bg-brand-magenta text-center px-4 sm:px-6">
         <h3 className="font-display font-bold text-xl md:text-2xl text-white max-w-4xl mx-auto leading-tight shadow-sm">
           Produtos revisados, usados e seminovos com garantia da loja.
         </h3>
@@ -341,7 +341,7 @@ function App() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-magenta/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none"></div>
         
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
             Seu Próximo Eletro Pode Custar <span className="text-brand-magenta block mt-2">Muito Menos</span>
           </h2>
@@ -365,7 +365,7 @@ function App() {
         {/* Glow effect na borda superior */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-brand-magenta/50 to-transparent"></div>
         
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Coluna 1: Sobre */}
           <div>
             <img src="/logo.png" alt="K Eletro Logo" className="h-10 w-auto object-contain mb-6" />
@@ -426,7 +426,7 @@ function App() {
         </div>
 
         {/* Barra Inferior */}
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-600 font-body text-center md:text-left">
             © {new Date().getFullYear()} K Eletro Outlet. Todos os direitos reservados.
           </p>
