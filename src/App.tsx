@@ -34,10 +34,10 @@ function App() {
     <div className="min-h-screen bg-brand-blueDark text-slate-100 overflow-hidden font-body selection:bg-brand-magenta selection:text-white">
       
       {/* HEADER PREMIUM ECOMMERCE */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 bg-transparent py-6'}`}>
+      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 bg-[#012a84] py-6'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
-          <div className="flex flex-col scale-[1.8] sm:scale-[2.4] md:scale-[3.0] origin-top-left z-50">
-            <img src="/logo.png" alt="K Eletro Logo" className="h-8 sm:h-10 w-auto object-contain" />
+          <div className="flex flex-col scale-[3.0] sm:scale-[4.0] md:scale-[5.0] origin-top-left z-50 -mt-[60px] md:-mt-[150px]">
+            <img src="/logo leo1.png" alt="Logo Leo 1" className="h-8 sm:h-10 w-auto object-contain" />
           </div>
           
           <nav className="hidden md:flex gap-8 font-display text-sm font-medium text-gray-300 ml-auto">
@@ -98,12 +98,15 @@ function App() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative h-[250px] sm:h-[400px] lg:h-[700px] w-full rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 mt-8 lg:mt-0"
+              className="relative w-[70%] md:w-[65%] lg:w-[60%] mx-auto rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 mt-8 lg:mt-0 flex"
             >
-              <img 
-                src="/hero_appliance_store.png" 
-                alt="Cliente comprando eletrodomésticos" 
-                className="w-full h-full object-cover object-center"
+              <video 
+                src="/img3.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-auto block"
               />
             </motion.div>
 
@@ -130,9 +133,9 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="ecommerce-card group lg:col-span-2 lg:row-span-2 min-h-[300px] lg:min-h-[420px]"
+              className="ecommerce-card group relative overflow-hidden"
             >
-              <img src="/imagens/geladeiraimg.jpg" alt="Geladeiras" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src="/geladeira1.jpeg" alt="Geladeiras" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-b from-brand-blueDark/80 via-transparent to-brand-blueDark/80"></div>
               <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
                 <h3 className="font-display text-3xl md:text-4xl font-bold text-white drop-shadow-md">Geladeiras</h3>
@@ -183,7 +186,9 @@ function App() {
                 </div>
               </div>
             </motion.div>
+          </div>
 
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-4 lg:*:w-[calc(33.333%-0.66rem)] md:*:w-[calc(50%-0.5rem)] *:w-full">
             {/* Micro-ondas */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -266,19 +271,19 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-12 text-center">Locação de Refrigeradores e Freezers Horizontal</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] sm:auto-rows-[200px] md:auto-rows-[250px]">
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="col-span-2 row-span-2 rounded-2xl overflow-hidden relative group shadow-lg">
-              <img src="/imagens/Refrigeradores%20e%20Freezers%20Horizontal1.avif" alt="Refrigeradores e Freezers" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 *:w-[calc(50%-0.5rem)] md:*:w-[calc(25%-1rem)] lg:*:max-w-[260px]">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg flex">
+              <img src="/geladeira 3.jpeg" alt="Refrigeradores e Freezers" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-brand-blueDark/40 group-hover:bg-transparent transition-colors duration-500"></div>
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg">
-              <img src="/imagens/Refrigeradores%20e%20Freezers%20Horizontal2.jpg" alt="Refrigerador Horizontal" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg flex">
+              <img src="/geladeira2.jpeg" alt="Refrigerador Horizontal" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg">
-              <img src="/imagens/Refrigeradores%20e%20Freezers%20Horizontal3.jpg" alt="Freezer" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg flex">
+              <img src="/img1.jpeg" alt="Freezer" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="col-span-2 rounded-2xl overflow-hidden relative group shadow-lg">
-              <img src="/imagens/Refrigeradores%20e%20Freezers%20Horizontal1.avif" alt="Equipamentos para Locação" className="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-700" />
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg flex">
+              <img src="/img2.jpeg" alt="Equipamentos para Locação" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
           </div>
 
