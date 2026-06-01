@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle, CheckCircle2, ShieldCheck, Tag, ShoppingBag, Truck, RefreshCcw, Star, MapPin, Clock, Phone, Instagram, Facebook } from 'lucide-react';
+import { ArrowRight, MessageCircle, CheckCircle2, ShieldCheck, Tag, ShoppingBag, Truck, RefreshCcw, Star, MapPin, Clock, Phone, Instagram } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '5511950522173';
 const WHATSAPP_TEXT = encodeURIComponent('Olá! Vim pelo site e gostaria de saber sobre as ofertas do Outlet de Eletrodomésticos hoje.');
@@ -9,6 +9,12 @@ const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
 const WhatsappIcon = ({ size = 24, className = "" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.76.452 3.468 1.306 4.975L2 22l5.163-1.353A9.957 9.957 0 0012.004 22c5.523 0 10-4.477 10-10.004S17.527 2 12.004 2zM12.004 20.31a8.3 8.3 0 01-4.238-1.157l-.304-.18-3.149.826.84-3.072-.198-.314A8.288 8.288 0 013.684 12c0-4.588 3.733-8.32 8.32-8.32 4.586 0 8.318 3.732 8.318 8.32s-3.732 8.31-8.318 8.31zm4.568-6.223c-.25-.125-1.482-.732-1.712-.816-.23-.083-.398-.125-.565.125-.167.25-.648.816-.795.982-.147.167-.295.187-.545.062-1.045-.52-1.922-1.082-2.668-2.222-.192-.294.19-.272.678-1.25.083-.167.042-.315-.02-.44-.063-.125-.565-1.363-.774-1.867-.203-.491-.41-.424-.565-.432-.148-.007-.316-.008-.484-.008-.168 0-.441.063-.672.314-.23.25-.88 .86-.88 2.095 0 1.236.901 2.43 1.026 2.597.125.167 1.772 2.705 4.29 3.732.6.244 1.067.39 1.433.5.602.191 1.15.163 1.583.099.486-.073 1.482-.606 1.692-1.192.21-.586.21-1.087.147-1.192-.062-.104-.23-.167-.48-.292z"/>
+  </svg>
+);
+
+const FacebookIcon = ({ size = 24, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
   </svg>
 );
 
@@ -383,7 +389,7 @@ function App() {
                 <Instagram size={20} />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-magenta hover:text-white transition-all hover:scale-110">
-                <Facebook size={20} />
+                <FacebookIcon size={20} />
               </a>
             </div>
           </div>
