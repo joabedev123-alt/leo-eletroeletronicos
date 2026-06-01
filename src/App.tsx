@@ -372,7 +372,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Coluna 1: Sobre */}
           <div>
-            <img src="/logo.png" alt="K Eletro Logo" className="h-10 w-auto object-contain mb-6" />
+            <img src="/logo leo1.png" alt="Logo Leo" className="h-24 sm:h-32 md:h-40 w-auto object-contain mb-6" />
             <p className="text-gray-400 font-body text-sm leading-relaxed mb-6">
               Sua melhor opção em eletrodomésticos premium seminovos, revisados e com preços imperdíveis de outlet. Qualidade e economia garantidas.
             </p>
@@ -436,7 +436,7 @@ function App() {
           </p>
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-xs text-gray-600 font-body">
             <a href="https://camaly.com.br/" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-white transition-colors">
-              Produzida com <span className="text-red-500 text-[10px]">❤️</span> por <span className="font-bold tracking-widest text-gray-400 hover:text-white">CAMALY</span>
+              Produzida com <span className="text-green-500 text-[10px]">💚</span> por <span className="font-bold tracking-widest text-gray-400 hover:text-white">CAMALY</span>
             </a>
             <div className="hidden md:block w-px h-3 bg-white/10"></div>
             <div className="flex gap-4">
