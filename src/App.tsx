@@ -1,22 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle, CheckCircle2, ShieldCheck, Tag, ShoppingBag, Truck, RefreshCcw, Star, MapPin, Clock, Phone, Instagram } from 'lucide-react';
+import { ArrowRight, CheckCircleFill, ShieldCheck, TagFill, BagFill, Truck, ArrowRepeat, StarFill, GeoAltFill, ClockFill, TelephoneFill, Whatsapp, Instagram, Facebook } from 'react-bootstrap-icons';
 
 const WHATSAPP_NUMBER = '5511950522173';
 const WHATSAPP_TEXT = encodeURIComponent('Olá! Vim pelo site e gostaria de saber sobre as ofertas do Outlet de Eletrodomésticos hoje.');
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
-
-const WhatsappIcon = ({ size = 24, className = "" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.76.452 3.468 1.306 4.975L2 22l5.163-1.353A9.957 9.957 0 0012.004 22c5.523 0 10-4.477 10-10.004S17.527 2 12.004 2zM12.004 20.31a8.3 8.3 0 01-4.238-1.157l-.304-.18-3.149.826.84-3.072-.198-.314A8.288 8.288 0 013.684 12c0-4.588 3.733-8.32 8.32-8.32 4.586 0 8.318 3.732 8.318 8.32s-3.732 8.31-8.318 8.31zm4.568-6.223c-.25-.125-1.482-.732-1.712-.816-.23-.083-.398-.125-.565.125-.167.25-.648.816-.795.982-.147.167-.295.187-.545.062-1.045-.52-1.922-1.082-2.668-2.222-.192-.294.19-.272.678-1.25.083-.167.042-.315-.02-.44-.063-.125-.565-1.363-.774-1.867-.203-.491-.41-.424-.565-.432-.148-.007-.316-.008-.484-.008-.168 0-.441.063-.672.314-.23.25-.88 .86-.88 2.095 0 1.236.901 2.43 1.026 2.597.125.167 1.772 2.705 4.29 3.732.6.244 1.067.39 1.433.5.602.191 1.15.163 1.583.099.486-.073 1.482-.606 1.692-1.192.21-.586.21-1.087.147-1.192-.062-.104-.23-.167-.48-.292z"/>
-  </svg>
-);
-
-const FacebookIcon = ({ size = 24, className = "" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-  </svg>
-);
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -90,8 +78,8 @@ function App() {
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-10">
                 <span className="badge-premium"><ShieldCheck size={16} className="text-brand-magenta" /> Garantia da Loja</span>
-                <span className="badge-premium"><CheckCircle2 size={16} className="text-brand-magenta" /> Produtos Revisados</span>
-                <span className="badge-premium"><ShoppingBag size={16} className="text-brand-magenta" /> Estoque de Saldo</span>
+                <span className="badge-premium"><CheckCircleFill size={16} className="text-brand-magenta" /> Produtos Revisados</span>
+                <span className="badge-premium"><BagFill size={16} className="text-brand-magenta" /> Estoque de Saldo</span>
               </motion.div>
               
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
@@ -100,7 +88,7 @@ function App() {
                   target="_blank" rel="noreferrer"
                   className="btn-primary px-8 py-4 sm:w-auto w-full text-base bg-[#25D366] hover:bg-[#1DA851] border-none shadow-[0_4px_14px_0_rgba(37,211,102,0.39)]"
                 >
-                  <WhatsappIcon size={22} />
+                  <Whatsapp size={22} />
                   CHAMAR NO WHATSAPP
                 </a>
               </motion.div>
@@ -151,7 +139,7 @@ function App() {
                 <h3 className="font-display text-3xl md:text-4xl font-bold text-white drop-shadow-md">Geladeiras</h3>
                 <div className="self-start mt-auto">
                   <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de saber mais sobre as geladeiras disponíveis.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg font-display font-bold hover:bg-[#1DA851] transition-colors shadow-lg">
-                    <WhatsappIcon size={18} /> Ver Produto
+                    <Whatsapp size={18} /> Ver Produto
                   </a>
                 </div>
               </div>
@@ -171,7 +159,7 @@ function App() {
                 <h3 className="font-display text-2xl font-bold text-white drop-shadow-md">Máquinas de Lavar</h3>
                 <div className="self-start mt-auto">
                   <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de saber mais sobre as máquinas de lavar disponíveis.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-lg font-display text-sm font-bold hover:bg-[#1DA851] transition-colors shadow-md">
-                    <WhatsappIcon size={16} /> Ver Produto
+                    <Whatsapp size={16} /> Ver Produto
                   </a>
                 </div>
               </div>
@@ -191,7 +179,7 @@ function App() {
                 <h3 className="font-display text-2xl font-bold text-white drop-shadow-md">Fogões</h3>
                 <div className="self-start mt-auto">
                   <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de saber mais sobre os fogões disponíveis.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-lg font-display text-sm font-bold hover:bg-[#1DA851] transition-colors shadow-md">
-                    <WhatsappIcon size={16} /> Ver Produto
+                    <Whatsapp size={16} /> Ver Produto
                   </a>
                 </div>
               </div>
@@ -211,7 +199,7 @@ function App() {
                 <h3 className="font-display text-2xl font-bold text-white drop-shadow-md">Micro-ondas</h3>
                 <div className="self-start mt-auto">
                   <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de saber mais sobre os micro-ondas disponíveis.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-lg font-display text-sm font-bold hover:bg-[#1DA851] transition-colors shadow-md">
-                    <WhatsappIcon size={16} /> Ver Produto
+                    <Whatsapp size={16} /> Ver Produto
                   </a>
                 </div>
               </div>
@@ -231,7 +219,7 @@ function App() {
                 <h3 className="font-display text-2xl font-bold text-white drop-shadow-md">Eletroportáteis</h3>
                 <div className="self-start mt-auto">
                   <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de saber mais sobre os eletroportáteis disponíveis.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-lg font-display text-sm font-bold hover:bg-[#1DA851] transition-colors shadow-md">
-                    <WhatsappIcon size={16} /> Ver Produto
+                    <Whatsapp size={16} /> Ver Produto
                   </a>
                 </div>
               </div>
@@ -251,11 +239,11 @@ function App() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: <ShieldCheck size={32} />, title: "Produtos Revisados", desc: "Todos os produtos passam por análise técnica rigorosa." },
-              { icon: <Tag size={32} />, title: "Economia Real", desc: "Preços muito abaixo do varejo online." },
-              { icon: <Star size={32} />, title: "Garantia da Loja", desc: "Mais segurança e tranquilidade na sua compra." },
-              { icon: <CheckCircle2 size={32} />, title: "Produtos Seminovos", desc: "Produtos selecionados e revisados cuidadosamente." },
-              { icon: <ShoppingBag size={32} />, title: "Outlet de Verdade", desc: "Pequenas avarias estéticas com grandes descontos." },
-              { icon: <RefreshCcw size={32} />, title: "Estoque Rotativo", desc: "Novas oportunidades e ofertas toda semana." }
+              { icon: <TagFill size={32} />, title: "Economia Real", desc: "Preços muito abaixo do varejo online." },
+              { icon: <StarFill size={32} />, title: "Garantia da Loja", desc: "Mais segurança e tranquilidade na sua compra." },
+              { icon: <CheckCircleFill size={32} />, title: "Produtos Seminovos", desc: "Produtos selecionados e revisados cuidadosamente." },
+              { icon: <BagFill size={32} />, title: "Outlet de Verdade", desc: "Pequenas avarias estéticas com grandes descontos." },
+              { icon: <ArrowRepeat size={32} />, title: "Estoque Rotativo", desc: "Novas oportunidades e ofertas toda semana." }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -297,7 +285,7 @@ function App() {
 
           <div className="mt-12 flex justify-center">
             <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Gostaria de saber mais sobre o serviço de aluguel de refrigeradores e freezers horizontais.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-xl font-display font-bold text-lg shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_15px_30px_rgba(37,211,102,0.5)] hover:-translate-y-1 transition-all duration-300">
-              <WhatsappIcon size={24} />
+              <Whatsapp size={24} />
               ALUGAR AGORA
             </a>
           </div>
@@ -366,7 +354,7 @@ function App() {
             target="_blank" rel="noreferrer"
             className="inline-flex items-center justify-center gap-4 bg-[#25D366] text-white px-10 py-6 rounded-2xl font-display font-bold text-xl shadow-[0_10px_40px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_50px_rgba(37,211,102,0.6)] hover:-translate-y-2 transition-all duration-300 w-full sm:w-auto"
           >
-            <WhatsappIcon size={28} />
+            <Whatsapp size={28} />
             CHAMAR AGORA
           </a>
         </div>
@@ -389,7 +377,7 @@ function App() {
                 <Instagram size={20} />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-magenta hover:text-white transition-all hover:scale-110">
-                <FacebookIcon size={20} />
+                <Facebook size={20} />
               </a>
             </div>
           </div>
@@ -422,15 +410,15 @@ function App() {
             <h4 className="text-white font-display font-bold text-lg mb-6">Contato e Local</h4>
             <ul className="space-y-4 font-body text-sm text-gray-400">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-brand-magenta shrink-0 mt-0.5" />
+                <GeoAltFill size={18} className="text-brand-magenta shrink-0 mt-0.5" />
                 <span>Atibaia — SP<br/><span className="text-xs text-gray-500">(Apenas retirada no local)</span></span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-[#25D366] shrink-0" />
+                <TelephoneFill size={18} className="text-[#25D366] shrink-0" />
                 <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="hover:text-white transition-colors font-medium">+55 11 95052-2173</a>
               </li>
               <li className="flex items-start gap-3">
-                <Clock size={18} className="text-brand-magenta shrink-0 mt-0.5" />
+                <ClockFill size={18} className="text-brand-magenta shrink-0 mt-0.5" />
                 <span>Seg a Sex: 09h às 18h<br/>Sábados: 09h às 14h</span>
               </li>
             </ul>
@@ -462,7 +450,7 @@ function App() {
         className="fixed bottom-6 right-6 z-[99] bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.5)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.7)] hover:-translate-y-1 hover:scale-110 transition-all duration-300"
         aria-label="Falar no WhatsApp"
       >
-        <WhatsappIcon size={32} />
+        <Whatsapp size={32} />
       </a>
 
     </div>
