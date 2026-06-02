@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircleFill, ShieldCheck, TagFill, BagFill, Truck, ArrowRepeat, StarFill, GeoAltFill, ClockFill, TelephoneFill, Whatsapp, Instagram, Facebook, CreditCardFill, ArrowLeftRight } from 'react-bootstrap-icons';
+import { ArrowRight, CheckCircleFill, ShieldCheck, TagFill, BagFill, Truck, ArrowRepeat, StarFill, GeoAltFill, ClockFill, TelephoneFill, Whatsapp, CreditCardFill, ArrowLeftRight } from 'react-bootstrap-icons';
 
 const WHATSAPP_NUMBER = '5511950522173';
 const WHATSAPP_TEXT = encodeURIComponent('Olá! Vim pelo site e gostaria de saber sobre as ofertas do Outlet de Eletrodomésticos hoje.');
