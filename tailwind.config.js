@@ -8,10 +8,10 @@ export default {
     extend: {
       colors: {
         brand: {
-          blue: '#0F2C59', // Azul royal profundo
-          blueDark: '#081730', // Fundo sofisticado
-          magenta: '#E11D48', // Vermelho vibrante elegante
-          magentaHover: '#BE123C',
+          blue: '#012a84', // Azul royal principal
+          blueDark: '#011c57', // Azul mais escuro para fundo
+          magenta: '#00b4d8', // Azul ciano vibrante para destaques
+          magentaHover: '#0096c7',
         }
       },
       fontFamily: {

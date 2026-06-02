@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircleFill, ShieldCheck, TagFill, BagFill, Truck, ArrowRepeat, StarFill, GeoAltFill, ClockFill, TelephoneFill, Whatsapp, Instagram, Facebook } from 'react-bootstrap-icons';
+import { ArrowRight, CheckCircleFill, ShieldCheck, TagFill, BagFill, Truck, ArrowRepeat, StarFill, GeoAltFill, ClockFill, TelephoneFill, Whatsapp, Instagram, Facebook, CreditCardFill, ArrowLeftRight } from 'react-bootstrap-icons';
 
 const WHATSAPP_NUMBER = '5511950522173';
 const WHATSAPP_TEXT = encodeURIComponent('Olá! Vim pelo site e gostaria de saber sobre as ofertas do Outlet de Eletrodomésticos hoje.');
@@ -8,6 +8,20 @@ const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const carouselItems = [
+    { type: 'image', src: '/fotos/img1.jpeg' },
+    { type: 'image', src: '/fotos/img2.jpeg' },
+    { type: 'video', src: '/fotos/img3.mp4' },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [carouselItems.length]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +48,10 @@ function App() {
     <div className="min-h-screen bg-brand-blueDark text-slate-100 overflow-hidden font-body selection:bg-brand-magenta selection:text-white">
       
       {/* HEADER PREMIUM ECOMMERCE */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 bg-[#012a84] py-6'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
-          <div className="flex flex-col scale-[3.0] sm:scale-[4.0] md:scale-[5.0] origin-top-left z-50 -mt-[60px] md:-mt-[150px]">
-            <img src="/logo leo1.png" alt="Logo Leo 1" className="h-8 sm:h-10 w-auto object-contain" />
+      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100 bg-brand-blue py-8 md:py-6'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex justify-center md:justify-between items-center">
+          <div className="flex flex-col scale-[5.0] sm:scale-[5.5] md:scale-[5.0] origin-top md:origin-top-left z-50 -mt-[140px] md:-mt-[150px]">
+            <img src="/logo leo1.png" alt="Logo Leo 1" className="h-10 sm:h-12 md:h-10 w-auto object-contain" />
           </div>
           
           <nav className="hidden md:flex gap-8 font-display text-sm font-medium text-gray-300 ml-auto">
@@ -98,10 +112,10 @@ function App() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative w-[70%] md:w-[65%] lg:w-[60%] mx-auto rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 mt-8 lg:mt-0 flex"
+              className="relative w-[95%] sm:w-[85%] md:w-[65%] lg:w-[60%] mx-auto rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 mt-8 lg:mt-0 flex"
             >
               <video 
-                src="/img3.mp4" 
+                src="/fotos/img3.mp4" 
                 autoPlay 
                 loop 
                 muted 
@@ -110,6 +124,70 @@ function App() {
               />
             </motion.div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* VISITE NOSSA LOJA - MAPA E FOTOS */}
+      <section className="py-12 bg-brand-blueDark relative border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-10">
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">Visite Nossa Loja</h2>
+            <p className="text-gray-400 font-body text-lg">Conheça nosso espaço e veja de perto nossos produtos.</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Mapa */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl h-[400px]"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117565.1764615469!2d-46.6347895!3d-23.1166687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cec15ac1e23a4b%3A0xc66579fc2c4b5722!2sAtibaia%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1717282800000!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mapa de Atibaia"
+              ></iframe>
+            </motion.div>
+
+            {/* Carrossel */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl h-[400px] relative bg-black flex items-center justify-center"
+            >
+              {carouselItems.map((item, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                >
+                  {item.type === 'image' ? (
+                    <img src={item.src} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
+                  ) : (
+                    <video src={item.src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                  )}
+                </div>
+              ))}
+              
+              {/* Controles do carrossel */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                {carouselItems.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-brand-magenta' : 'bg-white/50 hover:bg-white'}`}
+                    aria-label={`Ir para o slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -155,7 +233,7 @@ function App() {
               transition={{ delay: 0.1 }}
               className="ecommerce-card group min-h-[200px]"
             >
-              <img src="/imagens/mauina%20delavarimg.avif" alt="Máquinas de Lavar" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src="/fotos/Maquinadelavar.jpeg" alt="Máquinas de Lavar" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-b from-brand-blueDark/80 via-transparent to-brand-blueDark/80"></div>
               <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
                 <h3 className="font-display text-2xl font-bold text-white drop-shadow-md">Máquinas de Lavar</h3>
@@ -175,7 +253,7 @@ function App() {
               transition={{ delay: 0.2 }}
               className="ecommerce-card group min-h-[200px]"
             >
-              <img src="/imagens/fogoesimg.jpg" alt="Fogões" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src="/fotos/fogao.jpeg" alt="Fogões" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-b from-brand-blueDark/80 via-transparent to-brand-blueDark/80"></div>
               <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
                 <h3 className="font-display text-2xl font-bold text-white drop-shadow-md">Fogões</h3>
@@ -197,7 +275,7 @@ function App() {
               transition={{ delay: 0.1 }}
               className="ecommerce-card group min-h-[200px]"
             >
-              <img src="/imagens/microondasimg.jpg" alt="Micro-ondas" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src="/fotos/microondas.jpeg" alt="Micro-ondas" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-b from-brand-blueDark/80 via-transparent to-brand-blueDark/80"></div>
               <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
                 <h3 className="font-display text-2xl font-bold text-white drop-shadow-md">Micro-ondas</h3>
@@ -217,7 +295,7 @@ function App() {
               transition={{ delay: 0.2 }}
               className="ecommerce-card group relative overflow-hidden bg-white/5 flex flex-col"
             >
-              <img src="/imagens/eletroportateis.jpg" alt="Eletroportáteis" className="w-full h-auto min-h-[250px] object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src="/fotos/eletronicos.jpeg" alt="Eletroportáteis" className="w-full h-auto min-h-[250px] object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-b from-brand-blueDark/80 via-transparent to-brand-blueDark/80"></div>
               <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
                 <h3 className="font-display text-2xl font-bold text-white drop-shadow-md">Eletroportáteis</h3>
@@ -237,15 +315,16 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Por que comprar na K Eletro?</h2>
-            <p className="text-gray-400 font-body text-lg">Garantimos a melhor experiência de compra de eletrodomésticos.</p>
+            <p className="text-gray-400 font-body text-lg">Os eletrodomésticos passam por análise técnica e testes</p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: <ShieldCheck size={32} />, title: "Produtos Revisados", desc: "Todos os produtos passam por análise técnica rigorosa." },
-              { icon: <TagFill size={32} />, title: "Economia Real", desc: "Preços muito abaixo do varejo online." },
-              { icon: <StarFill size={32} />, title: "Garantia de Loja e Fábrica", desc: "Mais segurança e tranquilidade na sua compra." },
-              { icon: <CheckCircleFill size={32} />, title: "Produtos Seminovos", desc: "Produtos selecionados e revisados cuidadosamente." },
+              { icon: <TagFill size={32} />, title: "Economia", desc: "Preços abaixo do varejo on-line" },
+              { icon: <StarFill size={32} />, title: "Garantia", desc: "Produtos com garantia da loja e ou fábrica" },
+              { icon: <CreditCardFill size={32} />, title: "Pagamento Facilitado", desc: "Parcelamento em até 10x no cartão" },
+              { icon: <ArrowLeftRight size={32} />, title: "Troca", desc: "Aceitamos sua antiga geladeira na troca (sujeito a análise)" },
               { icon: <BagFill size={32} />, title: "Outlet de Verdade", desc: "Pequenas avarias estéticas com grandes descontos." },
               { icon: <ArrowRepeat size={32} />, title: "Estoque Rotativo", desc: "Novas oportunidades e ofertas toda semana." }
             ].map((item, i) => (
@@ -255,7 +334,7 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-brand-blue/50 border border-white/5 p-8 rounded-2xl hover:bg-brand-blue hover:border-brand-magenta/30 transition-colors"
+                className={`bg-brand-blue/50 border border-white/5 p-8 rounded-2xl hover:bg-brand-blue hover:border-brand-magenta/30 transition-colors ${i === 6 ? 'sm:col-span-2 lg:col-span-1 lg:col-start-2 sm:w-[calc(50%-12px)] lg:w-full sm:justify-self-center' : ''}`}
               >
                 <div className="text-brand-magenta mb-6">{item.icon}</div>
                 <h3 className="font-display text-xl font-bold text-white mb-2">{item.title}</h3>
@@ -271,19 +350,16 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-12 text-center">Locação de Refrigeradores e Freezers Horizontal</h2>
           
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 *:w-[calc(50%-0.5rem)] md:*:w-[calc(25%-1rem)] lg:*:max-w-[260px]">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 *:w-[calc(50%-0.5rem)] md:*:w-[calc(33.333%-1rem)] lg:*:max-w-[320px]">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg flex">
-              <img src="/geladeira 3.jpeg" alt="Refrigeradores e Freezers" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
+              <img src="/fotos/aluguel1.jpeg" alt="Refrigeradores e Freezers" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-brand-blueDark/40 group-hover:bg-transparent transition-colors duration-500"></div>
             </motion.div>
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg flex">
-              <img src="/geladeira2.jpeg" alt="Refrigerador Horizontal" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
+              <img src="/fotos/aluguel2.jpeg" alt="Refrigerador Horizontal" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg flex">
-              <img src="/img1.jpeg" alt="Freezer" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
-            </motion.div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden relative group shadow-lg flex">
-              <img src="/img2.jpeg" alt="Equipamentos para Locação" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
+              <img src="/fotos/aluguel3.jpeg" alt="Freezer" className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
             </motion.div>
           </div>
 
@@ -296,100 +372,48 @@ function App() {
         </div>
       </section>
 
-      {/* COMO FUNCIONA - TIMELINE */}
-      <section id="comofunciona" className="py-24 bg-brand-blueDark">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Como Comprar</h2>
-            <p className="text-gray-400 font-body text-lg">Processo rápido, seguro e sem burocracia.</p>
-          </div>
-          
-          <div className="relative border-l-2 border-brand-blue ml-4 md:ml-0 md:border-l-0 md:border-t-2 md:flex md:justify-between pt-8 md:pt-12">
-            {[
-              { step: '1', title: 'Veja os produtos disponíveis', desc: 'Através do nosso catálogo no WhatsApp.' },
-              { step: '2', title: 'Chame no WhatsApp', desc: 'Fale com nossos consultores de vendas.' },
-              { step: '3', title: 'Reserve rapidamente', desc: 'Garanta sua oferta antes que acabe.' },
-              { step: '4', title: 'Retire na loja', desc: 'Venha buscar seu eletrodoméstico.' },
-            ].map((s, i) => (
-              <div key={i} className="mb-10 md:mb-0 relative pl-8 md:pl-0 md:w-1/4 md:text-center md:-mt-[58px]">
-                <div className="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 top-0 w-4 h-4 rounded-full bg-brand-magenta shadow-[0_0_10px_rgba(225,29,72,0.8)] border-[3px] border-brand-blueDark"></div>
-                <div className="md:mt-10">
-                  <div className="text-brand-magenta font-display font-black text-2xl mb-2">Passo {s.step}</div>
-                  <h4 className="font-display font-bold text-white text-lg mb-2 leading-tight">{s.title}</h4>
-                  <p className="text-sm text-gray-400 font-body">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-16 bg-[#e11d48]/10 border border-[#e11d48]/30 rounded-2xl p-6 text-center flex flex-col md:flex-row items-center justify-center gap-4 shadow-lg">
-            <Truck size={32} className="text-[#e11d48]" />
+      {/* AVISOS IMPORTANTES */}
+      <section className="py-24 bg-brand-blueDark">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-6">
+          <div className="bg-[#e11d48]/10 border border-[#e11d48]/30 rounded-2xl p-6 text-center flex flex-col md:flex-row items-center justify-center gap-4 shadow-lg">
+            <Truck size={32} className="text-[#e11d48] shrink-0" />
             <div className="text-left">
               <span className="block text-white font-display font-bold text-lg">Atenção Importante:</span>
               <span className="text-[#e11d48] font-body font-medium">Não fazemos entrega. A retirada deve ser realizada diretamente em nossa loja em Atibaia-SP.</span>
             </div>
           </div>
+
+          <div className="bg-[#e11d48]/10 border border-[#e11d48]/30 rounded-2xl p-6 text-center flex flex-col md:flex-row items-center justify-center gap-4 shadow-lg">
+            <BagFill size={32} className="text-[#e11d48] shrink-0" />
+            <div className="text-left">
+              <span className="block text-white font-display font-bold text-lg">Aviso de Vendas:</span>
+              <span className="text-[#e11d48] font-body font-medium">Não realizamos vendas on-line. A finalização da compra deve ser feita presencialmente.</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* FAIXA DIFERENCIAL PREMIUM */}
-      <section className="py-12 bg-brand-magenta text-center px-4 sm:px-6">
-        <h3 className="font-display font-bold text-xl md:text-2xl text-white max-w-4xl mx-auto leading-tight shadow-sm">
-          Produtos revisados, usados e seminovos com garantia de loja e fábrica.
-        </h3>
-      </section>
-
-      {/* CTA FINAL EXTREMAMENTE FORTE */}
-      <section className="py-32 bg-brand-blueDark relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-magenta/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none"></div>
-        
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
-            Seu Próximo Eletro Pode Custar <span className="text-brand-magenta block mt-2">Muito Menos</span>
-          </h2>
-          <p className="text-gray-300 font-body text-base sm:text-xl mb-12 max-w-2xl mx-auto">
-            Fale agora conosco e descubra as melhores oportunidades disponíveis hoje. Estoque limitado.
-          </p>
-          
-          <a 
-            href={WHATSAPP_LINK}
-            target="_blank" rel="noreferrer"
-            className="inline-flex items-center justify-center gap-4 bg-[#25D366] text-white px-10 py-6 rounded-2xl font-display font-bold text-xl shadow-[0_10px_40px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_50px_rgba(37,211,102,0.6)] hover:-translate-y-2 transition-all duration-300 w-full sm:w-auto"
-          >
-            <Whatsapp size={28} />
-            CHAMAR AGORA
-          </a>
-        </div>
-      </section>
 
       {/* FOOTER COMPLETO */}
-      <footer className="pt-20 pb-10 bg-[#020611] border-t border-white/5 relative overflow-hidden">
+      <footer className="pt-12 pb-8 bg-brand-blue border-t border-white/5 relative overflow-hidden">
         {/* Glow effect na borda superior */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-brand-magenta/50 to-transparent"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Coluna 1: Sobre */}
           <div>
-            <img src="/logo leo1.png" alt="Logo Leo" className="h-24 sm:h-32 md:h-40 w-auto object-contain mb-6" />
-            <p className="text-gray-400 font-body text-sm leading-relaxed mb-6">
-              Sua melhor opção em eletrodomésticos premium seminovos, revisados e com preços imperdíveis de outlet. Qualidade e economia garantidas.
-            </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-magenta hover:text-white transition-all hover:scale-110">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-magenta hover:text-white transition-all hover:scale-110">
-                <Facebook size={20} />
-              </a>
+            <img src="/logo leo1.png" alt="Logo Leo" className="h-24 sm:h-32 md:h-40 w-auto object-contain mb-4" />
+            <div className="text-white font-body text-sm leading-relaxed">
+              <p className="font-bold text-white">Kuniyoshi Eletro LTDA</p>
+              <p>CNPJ: 36.419.360/0001-70</p>
+              <p className="mt-2 text-brand-magenta font-semibold">Desde 2020</p>
             </div>
           </div>
 
           {/* Coluna 2: Links Rápidos */}
           <div>
             <h4 className="text-white font-display font-bold text-lg mb-6">Links Rápidos</h4>
-            <ul className="space-y-4 font-body text-sm text-gray-400">
+            <ul className="space-y-4 font-body text-sm text-white/90">
               <li><a href="#hero" className="hover:text-brand-magenta transition-colors">Início</a></li>
               <li><a href="#categorias" className="hover:text-brand-magenta transition-colors">Nossos Produtos</a></li>
               <li><a href="#vantagens" className="hover:text-brand-magenta transition-colors">Por que comprar conosco?</a></li>
@@ -400,7 +424,7 @@ function App() {
           {/* Coluna 3: Categorias */}
           <div>
             <h4 className="text-white font-display font-bold text-lg mb-6">Categorias</h4>
-            <ul className="space-y-4 font-body text-sm text-gray-400">
+            <ul className="space-y-4 font-body text-sm text-white/90">
               <li><a href={WHATSAPP_LINK} className="hover:text-brand-magenta transition-colors">Geladeiras</a></li>
               <li><a href={WHATSAPP_LINK} className="hover:text-brand-magenta transition-colors">Máquinas de Lavar</a></li>
               <li><a href={WHATSAPP_LINK} className="hover:text-brand-magenta transition-colors">Fogões & Micro-ondas</a></li>
@@ -412,10 +436,14 @@ function App() {
           {/* Coluna 4: Contato & Local */}
           <div>
             <h4 className="text-white font-display font-bold text-lg mb-6">Contato e Local</h4>
-            <ul className="space-y-4 font-body text-sm text-gray-400">
+            <ul className="space-y-4 font-body text-sm text-white/90">
               <li className="flex items-start gap-3">
                 <GeoAltFill size={18} className="text-brand-magenta shrink-0 mt-0.5" />
-                <span>Atibaia — SP<br/><span className="text-xs text-gray-500">(Apenas retirada no local)</span></span>
+                <span>
+                  Praça Pio XII 72, Jardim Brasil<br/>
+                  Atibaia - SP<br/>
+                  CEP: 12940-160
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <TelephoneFill size={18} className="text-[#25D366] shrink-0" />
@@ -423,7 +451,7 @@ function App() {
               </li>
               <li className="flex items-start gap-3">
                 <ClockFill size={18} className="text-brand-magenta shrink-0 mt-0.5" />
-                <span>Seg a Sex: 09h às 18h<br/>Sábados: 09h às 14h</span>
+                <span>Segunda a Sexta: 9:30h às 18h<br/>Sábados: 9:30h às 14h</span>
               </li>
             </ul>
           </div>
@@ -431,12 +459,12 @@ function App() {
 
         {/* Barra Inferior */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600 font-body text-center md:text-left">
+          <p className="text-xs text-white/70 font-body text-center md:text-left">
             © {new Date().getFullYear()} K Eletro Outlet. Todos os direitos reservados.
           </p>
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-xs text-gray-600 font-body">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-xs text-white/70 font-body">
             <a href="https://camaly.com.br/" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-white transition-colors">
-              Produzida com <span className="text-green-500 text-[10px]">💚</span> por <span className="font-bold tracking-widest text-gray-400 hover:text-white">CAMALY</span>
+              Produzida com <span className="text-green-500 text-[10px]">💚</span> por <span className="font-bold tracking-widest text-white hover:text-white/80">CAMALY</span>
             </a>
             <div className="hidden md:block w-px h-3 bg-white/10"></div>
             <div className="flex gap-4">
